@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero's Creative Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Canvas for dynamic visual particles/effects -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Custom Cursor Glow & Trail -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- Hidden Audio Elements for User Provided Sounds -->
+    <!-- Transition sound (to be provided by user: assets/transition.mp3) -->
+    <audio id="transition-audio" src="assets/transition.mp3" preload="auto"></audio>
+    <!-- Malcolm Todd Song (to be provided by user: assets/malcolm_song.mp3) -->
+    <audio id="malcolm-audio" src="assets/malcolm_song.mp3" preload="auto" crossorigin="anonymous"></audio>
+    <!-- Splash sound (to be provided by user: assets/splash.mp3) -->
+    <audio id="splash-audio" src="assets/splash.mp3" preload="auto"></audio>
+
+    <!-- Slide Deck Container -->
+    <main id="slide-container">
+        
+        <!-- SLIDE 1: Cover (Combined Name, Nickname, Age) -->
+        <section class="slide active" id="slide-intro" data-theme="ash">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content text-center">
+                        <div class="badge neon-pulse">MALIGAYANG PAGDATING</div>
+                        <h1 class="glitch-text" data-text="Yahiero Tiston">Yahiero Tiston</h1>
+                        <h2 class="sub-hero">PALAYAW: <span class="highlight-text glow-cyan">Hero</span></h2>
+                        <div class="divider"></div>
+                        <p class="age-badge">16 magiging 17 ngayung year</p>
+                        <div class="scroll-indicator">
+                            <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+                            <span>Scroll or Use Arrow Keys</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Birthday -->
+        <section class="slide" id="slide-birthday" data-theme="space">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">02</div>
+                            <h2>Birthday</h2>
+                            <h3 class="highlight-text glow-yellow">August 3, 2009</h3>
+                            <p class="description">araw na ako ay nabuhay muli sa mundong pangalan ay "earth"</p>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="img-frame border-yellow pulse-glow-yellow" id="birthday-img-frame">
+                                <img id="birthday-img" src="assets/birthday.png" alt="Birthday Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Place -->
+        <section class="slide" id="slide-place" data-theme="grid">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">03</div>
+                            <h2>Location</h2>
+                            <h3 class="highlight-text glow-green">Cainta, Rizal</h3>
+                            <p class="description">kung saan ako nakatira at naninirahan </p>
+                        </div>
+                        <div class="card-visual-panel double-grid">
+                            <div class="img-frame border-green" id="user-img-frame-1">
+                                <img id="user-img-1" src="assets/cainta1.png" alt="Cainta Photo 1">
+                            </div>
+                            <div class="img-frame border-green" id="user-img-frame-2">
+                                <img id="user-img-2" src="assets/cainta2.png" alt="Cainta Photo 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Favorite Color -->
+        <section class="slide" id="slide-color" data-theme="ash-color">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content text-center">
+                        <div class="slide-num">04</div>
+                        <h2>Favorite Color</h2>
+                        <h3 class="color-title animate-char">ASH GRAY</h3>
+                        <div class="color-swatch-container">
+                            <div class="swatch" style="--swatch-color: #B2BEB5;" data-color="Ash Gray" data-hex="#B2BEB5">
+                                <div class="swatch-glowing"></div>
+                                <span class="swatch-label">#B2BEB5</span>
+                            </div>
+                            <div class="swatch" style="--swatch-color: #7A8B7B;" data-color="Sage Ash" data-hex="#7A8B7B">
+                                <div class="swatch-glowing"></div>
+                                <span class="swatch-label">#7A8B7B</span>
+                            </div>
+                            <div class="swatch" style="--swatch-color: #3A413C;" data-color="Dark Charcoal Ash" data-hex="#3A413C">
+                                <div class="swatch-glowing"></div>
+                                <span class="swatch-label">#3A413C</span>
+                            </div>
+                        </div>
+                        <p class="color-description description">basta color yan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Favorite Food -->
+        <section class="slide" id="slide-food" data-theme="steam">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">05</div>
+                            <h2>Favorite Food</h2>
+                            <h3 class="highlight-text glow-orange">Bulalo</h3>
+                            <p class="description">I LOVE BULALO IN TAGAYTAY NAPAKA GOATED</p>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="img-frame border-orange" id="food-img-frame">
+                                <div class="steam-container">
+                                    <div class="steam-particle" style="--i:1;"></div>
+                                    <div class="steam-particle" style="--i:2;"></div>
+                                    <div class="steam-particle" style="--i:3;"></div>
+                                    <div class="steam-particle" style="--i:4;"></div>
+                                </div>
+                                <img id="food-img" src="assets/bulalo.png" alt="Steaming Bulalo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Favorite Sport -->
+        <section class="slide" id="slide-sport" data-theme="soccer">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">06</div>
+                            <h2>Favorite Sport</h2>
+                            <h3 class="highlight-text glow-green">Soccer</h3>
+                            <p class="description">ako ay naninipa dati ng balls</p>
+                        </div>
+                        <div class="card-visual-panel triple-grid">
+                            <div class="img-frame border-green">
+                                <img id="soccer-img-1" src="assets/soccer1.png" alt="Soccer Photo 1" onerror="this.style.display='none';">
+                            </div>
+                            <div class="img-frame border-green">
+                                <img id="soccer-img-2" src="assets/soccer2.png" alt="Soccer Photo 2" onerror="this.style.display='none';">
+                            </div>
+                            <div class="img-frame border-green">
+                                <img id="soccer-img-3" src="assets/soccer3.png" alt="Soccer Photo 3" onerror="this.style.display='none';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Favorite Drink -->
+        <section class="slide" id="slide-drink" data-theme="water">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content text-center">
+                        <div class="slide-num">06</div>
+                        <h2>Favorite Drink</h2>
+                        <h3 class="highlight-text glow-cyan water-text">H<sub>2</sub>O (TUBIG)</h3>
+                        <p class="description">masarap ang tubig dahil ito ay tubig</p>
+                        <div class="water-canvas-wrapper">
+                            <canvas id="water-ripple-canvas"></canvas>
+                            <div class="splash-helper">Click & Drag to Splash!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Favorite Movie -->
+        <section class="slide" id="slide-movie" data-theme="whiplash">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">07</div>
+                            <h2>Favorite Movie</h2>
+                            <h3 class="movie-title font-impact">Whiplash</h3>
+                            <p class="description">NOT MY TEMPO BRO</p>
+                            <div class="whiplash-interaction">
+                                <button class="tempo-btn" id="tempo-tap-btn">TAP THE TEMPO</button>
+                                <div class="bpm-display"><span id="bpm-value">0</span> BPM</div>
+                            </div>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="gif-container border-red" id="whiplash-gif-box">
+                                <img id="whiplash-gif" src="assets/whiplash.gif" alt="Whiplash movie drumming GIF">
+                                <div class="drum-pulse-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: Favorite TV Series -->
+        <section class="slide" id="slide-tv" data-theme="you">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">08</div>
+                            <h2>Favorite TV Series</h2>
+                            <h3 class="tv-title highlight-text glow-red">YOU</h3>
+                            <p class="description">panoorin ninyo toh guys</p>
+                            <div class="stalker-quote" id="stalker-quote-box">
+                                "Hello, you."
+                            </div>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="gif-container border-red" id="you-gif-box">
+                                <img id="you-gif" src="assets/you.gif" alt="YOU Netflix Series GIF">
+                                <div class="vignette-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: Favorite Song -->
+        <section class="slide" id="slide-music" data-theme="music">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">09</div>
+                            <h2>Favorite Song</h2>
+                            <h3 class="highlight-text glow-purple">ANY SONG OF Malcolm Todd</h3>
+                            <p class="description">alam ninyo naman na toh guys</p>
+                            
+                            <!-- Cassette/Song Player -->
+                            <div class="cassette-player">
+                                <div class="cassette-label">I Just Got Mad</div>
+                                <div class="cassette-wheels">
+                                    <div class="wheel left-wheel"></div>
+                                    <div class="wheel right-wheel"></div>
+                                </div>
+                                <div class="music-controls">
+                                    <button class="music-btn" id="play-song-btn">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="music-btn hidden" id="pause-song-btn">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                        </svg>
+                                    </button>
+                                    <span class="track-timer" id="track-time">0:00</span>
+                                </div>
+                                <div class="visualizer-bars" id="music-visualizer">
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="img-frame border-purple music-vinyl-frame" id="music-img-frame">
+                                <img id="music-img" src="assets/malcolm_album.png" alt="Malcolm Todd Album Art">
+                                <div class="vinyl-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: Favorite Game -->
+        <section class="slide" id="slide-game" data-theme="game">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">10</div>
+                            <h2>Favorite Game</h2>
+                            <h3 class="game-title glow-cyan">Detroit: Become Human</h3>
+                            <p class="description">napaka ganda ng story neto so angas napaka</p>
+                            <div class="game-choices">
+                                <button class="game-choice-btn" data-choice="deviant">BECOME DEVIANT</button>
+                                <button class="game-choice-btn" data-choice="machine">REMAIN MACHINE</button>
+                            </div>
+                            <div class="android-led-ring-wrapper">
+                                <div class="android-led-ring blue" id="android-led"></div>
+                                <span id="android-status">SYSTEMS NOMINAL</span>
+                            </div>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="gif-container border-cyan" id="detroit-gif-box">
+                                <img id="detroit-gif" src="assets/detroit.gif" alt="Detroit: Become Human Connor GIF">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: One Fun Fact -->
+        <section class="slide" id="slide-fact" data-theme="japan">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content flex-row">
+                        <div class="card-text-panel">
+                            <div class="slide-num">11</div>
+                            <h2>One Fun Fact</h2>
+                            <h3 class="highlight-text glow-red fact-title">Japan</h3>
+                            <p class="description">di ko alam bakit ganun pero ganyan talaga</p>
+                            <div class="japanese-translation">
+                                「私の血には日本があります」
+                            </div>
+                        </div>
+                        <div class="card-visual-panel">
+                            <div class="img-frame border-red" id="japan-img-frame">
+                                <img id="japan-img" class="fact-japan-img" src="assets/japan_heritage.png" alt="Japanese Heritage Art">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: One Thing to Improve -->
+        <section class="slide" id="slide-improve" data-theme="improve">
+            <div class="card-container">
+                <div class="card glass">
+                    <div class="card-glow"></div>
+                    <div class="card-content text-center">
+                        <div class="slide-num">12</div>
+                        <h2>One Thing I Want to Improve</h2>
+                        <h3 class="highlight-text glow-yellow level-title">MYSELF</h3>
+                        <p class="description">marami pang araw, kaya pa</p>
+                        <div class="stat-container">
+                            <div class="stat-bar-wrapper">
+                                <div class="stat-label">Study <span id="stat-creativity-val">90%</span></div>
+                                <div class="stat-bar"><div class="stat-progress yellow" style="--val: 90%;"></div></div>
+                            </div>
+                            <div class="stat-bar-wrapper">
+                                <div class="stat-label">Coding <span id="stat-coding-val">80%</span></div>
+                                <div class="stat-bar"><div class="stat-progress yellow" style="--val: 80%;"></div></div>
+                            </div>
+                            <div class="stat-bar-wrapper">
+                                <div class="stat-label">Growth Mindset <span id="stat-growth-val">95%</span></div>
+                                <div class="stat-bar"><div class="stat-progress yellow" style="--val: 95%;"></div></div>
+                            </div>
+                        </div>
+                        <button class="level-up-btn" id="level-up-trigger">LEVEL UP HERO</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: Message to Ma'am Gellien -->
+        <section class="slide" id="slide-teacher" data-theme="royal">
+            <div class="card-container">
+                <div class="card glass royal-card">
+                    <div class="card-glow"></div>
+                    <div class="card-content text-center">
+                        <div class="badge neon-gold">PANGHULI</div>
+                        <h2 class="teacher-title">Message to Ma'am Gellien</h2>
+                        <div class="message-ticker-wrapper">
+                            <div class="message-ticker-scroll" id="ticker-scroll">
+                                                                you are the most beautifulgorgeousprettystunningelegantextraordinaryamazingkindsmartbrilliantpatientunderstandingcaringrespectfulgracefulcharminglovelywonderfulfantasticawesomeincredibleexcellentoutstandingremarkablemagnificentmarvelousfabulousspectacularradiantshininginspiringmotivatingencouragingtalentedknowledgeablewisewittycooliconiclegendarygoatedqueen teacher
+                            </div>
+                        </div>
+                        <div class="divider gold-divider"></div>
+                        <h1 class="thank-you-title" id="thank-you-anim">SALAMAT PO</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navigation Dots/Sidebar -->
+    <nav class="nav-sidebar">
+        <ul class="nav-dots">
+            <li class="nav-dot active" data-index="0" title="Intro"></li>
+            <li class="nav-dot" data-index="1" title="Birthday"></li>
+            <li class="nav-dot" data-index="2" title="Location"></li>
+            <li class="nav-dot" data-index="3" title="Favorite Color"></li>
+            <li class="nav-dot" data-index="4" title="Favorite Food"></li>
+            <li class="nav-dot" data-index="5" title="Favorite Sport"></li>
+            <li class="nav-dot" data-index="6" title="Favorite Drink"></li>
+            <li class="nav-dot" data-index="7" title="Favorite Movie"></li>
+            <li class="nav-dot" data-index="8" title="Favorite TV Series"></li>
+            <li class="nav-dot" data-index="9" title="Favorite Song"></li>
+            <li class="nav-dot" data-index="10" title="Favorite Game"></li>
+            <li class="nav-dot" data-index="11" title="One Fun Fact"></li>
+            <li class="nav-dot" data-index="12" title="Improvement"></li>
+            <li class="nav-dot" data-index="13" title="Ma'am Gellien"></li>
+        </ul>
+        <div class="nav-current-label">01 / 14</div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
